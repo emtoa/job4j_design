@@ -16,21 +16,22 @@ public class FlatMap<T> implements Iterator<T> {
 
     @Override
     public boolean hasNext() {
-        if (item == null) {
-            item = valueOf();
+        try {
+            while (!cursor.hasNext()) {
+                cursor = data.next();
+            }
+            return cursor.hasNext();
+        } catch (NoSuchElementException exception) {
+            return false;
         }
-        return (item != null) ? true : false;
     }
 
     @Override
     public T next() {
-        T iNext;
         if (!hasNext()) {
             throw new NoSuchElementException();
         }
-        iNext = item;
-        item = null;
-        return iNext;
+        return cursor.next();
     }
 
     public T valueOf() {
