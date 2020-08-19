@@ -5,7 +5,7 @@ import java.util.NoSuchElementException;
 import java.util.Objects;
 
 public class SimpleArray <T> implements Iterable <T> {
-    Object[] obj;
+    private Object[] obj;
     private int indx = 0;
     private int count;
 
@@ -21,22 +21,21 @@ public class SimpleArray <T> implements Iterable <T> {
     }
 
     public void set (int index, T model){
-        if (Objects.checkIndex(index, this.count) == index) {
+        if (Objects.checkIndex(index, this.indx) == index) {
             this.obj[index] = model;
         }
     }
 
     public void remote(int index) {
-     if (Objects.checkIndex(index, this.count) == index) {
-         for (int i = index; i < indx - 1; i++) {
-             this.obj[i] = this.obj[i + 1];
-         }
+     if (Objects.checkIndex(index, this.indx) == index) {
+        System.arraycopy(this.obj, index+1, this.obj, index,this.indx-(index+1));
+         this.indx--;
      }
     }
 
 
     public T get(int index) {
-        if (Objects.checkIndex(index, count) == index) {
+        if (Objects.checkIndex(index, this.indx) == index) {
             return (T) this.obj[index];
         }
         return (T) null;
@@ -51,7 +50,7 @@ public class SimpleArray <T> implements Iterable <T> {
 
          @Override
           public boolean hasNext() {
-             return indexIterator < count;
+             return indexIterator < indx;
           }
 
            @Override
@@ -62,5 +61,6 @@ public class SimpleArray <T> implements Iterable <T> {
                return (T) obj[indexIterator++];
            }
         };
+        return itr;
     }
 }
