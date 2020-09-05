@@ -16,7 +16,7 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     public void add(T model) {
-        if (indx >= this.indx) {
+        if (indx >= container.length) {
             addContainer();
         }
         container[indx++] = model;
@@ -25,7 +25,6 @@ public class SimpleArray<T> implements Iterable<T> {
 
     public void addContainer() {
         Object[] containerTemp = new Object[container.length + 1];
-        //System.arraycopy(container,0, containerTemp, 0, container.length);
         container = Arrays.copyOf(container, container.length + 1);
     }
 
