@@ -18,6 +18,6 @@ public class LinkedListTest {
         System.out.println(lists.get(0));
         System.out.println(lists.get(1));
         System.out.println(lists.get(2));
-
+        //System.out.println(lists.get(4));
     }
 }

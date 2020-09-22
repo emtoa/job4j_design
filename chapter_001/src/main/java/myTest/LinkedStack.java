@@ -26,7 +26,6 @@ public class LinkedStack<T> {
     private Node<T> top = new Node<T>(); // Сторож
 
     public void push (T item) {
-
         top = new Node<T>(item, top);
     }
 
@@ -39,14 +38,17 @@ public class LinkedStack<T> {
 
     public static void main(String[] args) {
         LinkedStack<String> lss = new LinkedStack<String>();
-        for (String s : "Phasers on stun!".split(" "))
+        for (String s : "Phasers on stun!".split(" ")) {
             lss.push(s);
-        String s;
-        while ((s = lss.pop()) != null)
-            System.out.println(s);
+        }
+        /*
+         String s;
+          while ((s = lss.pop()) != null) {
+              System.out.println(s);
+          }
+*/
 
-
-        LinkedStack<String> lss1 = new LinkedStack<>();
+        System.out.println(lss.pop());
 
     }
 }
