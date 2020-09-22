@@ -1,18 +1,29 @@
 package ru.job4j.collection;
 
 import org.junit.Test;
-
 import java.util.*;
-
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
 
-public class LinkedArrayTest{
+public class LinkedArrayTest {
+    @Test
+    public void whenAddThenFind() {
+        LinkedArray<String> array = new LinkedArray<>();
+        array.add("first");
+        array.add("two");
+        array.add("three");
+        array.add("four");
+        assertThat(array.get(2), is("three"));
+        assertThat(array.get(0), is("first"));
+        assertThat(array.get(1), is("two"));
+    }
+
     @Test
     public void whenAddThenGet() {
         LinkedArray<String> array = new LinkedArray<>();
         array.add("first");
+        array.add("two");
         String rsl = array.get(0);
         assertThat(rsl, is("first"));
     }

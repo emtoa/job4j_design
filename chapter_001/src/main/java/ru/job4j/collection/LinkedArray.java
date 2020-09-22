@@ -6,38 +6,57 @@ public class LinkedArray<E> implements Iterable<E> {
 
     static class Node<U> {
 
+        int index = -1;
         U item;
+        Node<U> next;
 
         public Node() {
+            this.index = -1;
             this.item = null;
+            this.next = null;
         }
 
-        public Node (U item) {
+        public Node (int index, U item, Node<U> next) {
+            this.index = index;
             this.item = item;
+            this.next = next;
+        }
+
+        boolean end() {
+            return this.item == null && this.next == null;
         }
     }
 
-    private Node[] container = new Node[10];
+    private Node<E> top = new Node<>();
+    private Node<E> topMain = new Node<>();
     private int modCount = 0; //счетчит изменений
-    private int indx = 0;
 
     public E get(int index) {
-        if (Objects.checkIndex(index, indx) == index) {
-            return (E) container[index].item;
+            top = topMain;
+        while (!top.end()) {
+            Node<E> tmp = pop();
+            if (tmp.index == index) {
+                return (E) tmp.item;
+            }
         }
-        return (E) null;
+        throw new IndexOutOfBoundsException();
+    }
+
+    public Node<E> pop() {
+        Node<E> result = top;
+        if (!top.end()) {
+            top = top.next;
+        }
+        return result;
     }
 
     public void add(E value) {
-        if (indx >= container.length) {
-            addContainer();
-        }
-        container[indx++] = new Node(value);
+        topMain = new Node(topMain.index + 1, value, topMain);
         modCount++;
     }
 
-    public void addContainer() {
-        container = Arrays.copyOf(container, container.length + 1);
+    public int indx() {
+        return topMain.index;
     }
 
     @Override
@@ -49,7 +68,7 @@ public class LinkedArray<E> implements Iterable<E> {
 
             @Override
             public boolean hasNext() {
-                return indexIterator < indx;
+                return indexIterator <= indx();
             }
 
             @Override
@@ -60,7 +79,7 @@ public class LinkedArray<E> implements Iterable<E> {
                 if (expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-                return (E) container[indexIterator++].item;
+                return (E) get(indexIterator++);
             }
         };
         return itr;
