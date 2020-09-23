@@ -6,18 +6,18 @@ public class LinkedArray<E> implements Iterable<E> {
 
     static class Node<U> {
 
-        int index = -1;
+        //int index = -1;
         U item;
         Node<U> next;
 
         public Node() {
-            this.index = -1;
+            //this.index = -1;
             this.item = null;
             this.next = null;
         }
 
-        public Node (int index, U item, Node<U> next) {
-            this.index = index;
+        public Node (U item, Node<U> next) {
+            //this.index = index;
             this.item = item;
             this.next = next;
         }
@@ -31,11 +31,13 @@ public class LinkedArray<E> implements Iterable<E> {
     private Node<E> topMain = new Node<>();
     private int modCount = 0; //счетчит изменений
 
+    private int size = -1;
+
     public E get(int index) {
             top = topMain;
-        while (!top.end()) {
+        for (int i = size; i >= 0; i--) {
             Node<E> tmp = pop();
-            if (tmp.index == index) {
+            if (i == index) {
                 return (E) tmp.item;
             }
         }
@@ -51,12 +53,13 @@ public class LinkedArray<E> implements Iterable<E> {
     }
 
     public void add(E value) {
-        topMain = new Node(topMain.index + 1, value, topMain);
+        topMain = new Node( value, topMain);
+        size++;
         modCount++;
     }
 
     public int indx() {
-        return topMain.index;
+        return size;
     }
 
     @Override
