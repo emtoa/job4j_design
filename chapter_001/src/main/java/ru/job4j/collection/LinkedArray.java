@@ -6,7 +6,6 @@ public class LinkedArray<E> implements Iterable<E> {
 
     static class Node<U> {
 
-        //int index = -1;
         U item;
         Node<U> next;
 
