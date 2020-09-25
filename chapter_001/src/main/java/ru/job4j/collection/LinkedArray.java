@@ -4,36 +4,13 @@ import java.util.*;
 
 public class LinkedArray<E> implements Iterable<E> {
 
-    static class Node<U> {
-
-        U item;
-        Node<U> next;
-
-        public Node() {
-            //this.index = -1;
-            this.item = null;
-            this.next = null;
-        }
-
-        public Node (U item, Node<U> next) {
-            //this.index = index;
-            this.item = item;
-            this.next = next;
-        }
-
-        boolean end() {
-            return this.item == null && this.next == null;
-        }
-    }
-
     private Node<E> top = new Node<>();
-    private Node<E> topMain = new Node<>();
+    private Node<E> head = new Node<>();
     private int modCount = 0; //счетчит изменений
-
     private int size = -1;
 
     public E get(int index) {
-            top = topMain;
+        top = head;
         for (int i = size; i >= 0; i--) {
             Node<E> tmp = pop();
             if (i == index) {
@@ -52,7 +29,7 @@ public class LinkedArray<E> implements Iterable<E> {
     }
 
     public void add(E value) {
-        topMain = new Node( value, topMain);
+        head = new Node( value, head);
         size++;
         modCount++;
     }
@@ -63,8 +40,8 @@ public class LinkedArray<E> implements Iterable<E> {
 
     @Override
     public Iterator<E> iterator() {
-
         Iterator<E> itr = new Iterator<E>() {
+            Node<E> n = head;
             private int indexIterator = 0;
             private int expectedModCount = modCount;
 
@@ -75,15 +52,39 @@ public class LinkedArray<E> implements Iterable<E> {
 
             @Override
             public E next() {
+
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
                 if (expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-                return (E) get(indexIterator++);
+
+                E actual = n.item;
+                n = n.next;
+                return (E) actual;
             }
         };
         return itr;
+    }
+
+    static class Node<U> {
+
+        U item;
+        Node<U> next;
+
+        public Node() {
+            this.item = null;
+            this.next = null;
+        }
+
+        public Node (U item, Node<U> next) {
+            this.item = item;
+            this.next = next;
+        }
+
+        boolean end() {
+            return this.item == null && this.next == null;
+        }
     }
 }

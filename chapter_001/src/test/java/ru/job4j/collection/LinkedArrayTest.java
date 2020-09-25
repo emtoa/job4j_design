@@ -81,19 +81,17 @@ public class LinkedArrayTest {
         array.add("twelve");
 
         Iterator<String> itr = array.iterator();
-
-        assertThat(itr.next(), is("first"));
-        assertThat(itr.next(), is("second"));
-        assertThat(itr.next(), is("three"));
-        assertThat(itr.next(), is("four"));
-        assertThat(itr.next(), is("five"));
-        assertThat(itr.next(), is("six"));
-        assertThat(itr.next(), is("seven"));
-        assertThat(itr.next(), is("eight"));
-        assertThat(itr.next(), is("nine"));
-        assertThat(itr.next(), is("ten"));
-        assertThat(itr.next(), is("eleven"));
         assertThat(itr.next(), is("twelve"));
-
+        assertThat(itr.next(), is("eleven"));
+        assertThat(itr.next(), is("ten"));
+        assertThat(itr.next(), is("nine"));
+        assertThat(itr.next(), is("eight"));
+        assertThat(itr.next(), is("seven"));
+        assertThat(itr.next(), is("six"));
+        assertThat(itr.next(), is("five"));
+        assertThat(itr.next(), is("four"));
+        assertThat(itr.next(), is("three"));
+        assertThat(itr.next(), is("second"));
+        assertThat(itr.next(), is("first"));
     }
 }
