@@ -19,10 +19,10 @@ class DoublyLinkedList
         Link newLink = new Link(dd); // Создание нового элемента
         if( isEmpty() ) // Если список не содержит элементов,
             last = newLink; // newLink <-- last
-        else
+        else {
             first.previous = newLink; // newLink <-- старое значение first
-
-        newLink.next = first; // newLink --> старое значение first
+            newLink.next = first; // newLink --> старое значение first
+        }
         first = newLink; // first --> newLink
     }
     // -------------------------------------------------------------
