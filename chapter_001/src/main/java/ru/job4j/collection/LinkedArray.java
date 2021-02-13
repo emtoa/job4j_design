@@ -29,7 +29,7 @@ public class LinkedArray<E> implements Iterable<E> {
     }
 
     public void add(E value) {
-        head = new Node( value, head);
+        head = new Node(value, head);
         size++;
         modCount++;
     }
@@ -78,7 +78,7 @@ public class LinkedArray<E> implements Iterable<E> {
             this.next = null;
         }
 
-        public Node (U item, Node<U> next) {
+        public Node(U item, Node<U> next) {
             this.item = item;
             this.next = next;
         }

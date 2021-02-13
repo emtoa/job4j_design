@@ -7,8 +7,7 @@ public class SimpleStack<T> {
 
 
     public T pop() {
-        //return linked.deleteLast();
-        return linked.deleteFirst();
+        return linked.deleteLast();
     }
 
 
