@@ -18,6 +18,6 @@ public class SimpleStack<T> {
     }
 
     public boolean isEmpty() {
-        return size > -1;
+        return size <= -1;
     }
 }
