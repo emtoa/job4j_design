@@ -22,11 +22,7 @@ public class SimpleLincedList<T> implements Iterable<T> {
 
     public boolean revert() {
         //TODO impl reverts of linked list.
-        if (head == null) {
-            return false;
-        }
-
-        if (head.next == null) {
+        if (head == null || head.next == null) {
             return false;
         }
 
