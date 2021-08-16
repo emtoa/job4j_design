@@ -6,7 +6,7 @@ public class ResultFile {
 
     public static void main(String[] args) {
 
-       try (FileOutputStream out = new FileOutputStream("result.txt")) {
+       try (FileOutputStream out = new FileOutputStream("oi_file/result.txt")) {
            int mult;
            String res;
             out.write("Hello, this is multiplication table!".getBytes());
