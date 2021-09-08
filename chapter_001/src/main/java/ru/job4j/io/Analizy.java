@@ -12,13 +12,13 @@ import java.util.stream.Collectors;
 
 public class Analizy {
 
-    public StringJoiner sResult;
+    private StringJoiner sResult;
+    private Pattern p = Pattern.compile("^(\\d{3})\\s{1}(.+)$");;
+    private Matcher m;
 
     public void unavailable(String source, String target) {
 
         try (PrintWriter out = new PrintWriter(new FileOutputStream(target))) {
-            Pattern p;
-            Matcher m;
 
             BufferedReader read = new BufferedReader(new FileReader(source));
 
@@ -27,7 +27,6 @@ public class Analizy {
             sResult = new StringJoiner(";");
 
             for (String str : stt) {
-                p = Pattern.compile("^(\\d{3})\\s{1}(.+)$");
                 m = p.matcher(str);
                 if (m.find()) {
 
