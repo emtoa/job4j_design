@@ -30,9 +30,9 @@ public class Analizy {
                 m = p.matcher(str);
                 if (m.find()) {
 
-                    if (sResult.length() <= 0 &&
-                            (m.group(1).toString().equals("400") ||
-                            m.group(1).toString().equals("500"))) {
+                    if (sResult.length() <= 0
+                            && (m.group(1).toString().equals("400")
+                            || m.group(1).toString().equals("500"))) {
                         sResult.add(m.group(2).toString());
                     }
 
