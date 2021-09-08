@@ -15,22 +15,20 @@ public class Config {
 
     private final String path;
     private final Map<String, String> values = new HashMap<String, String>();
+    private String[] strSetting;
 
     public Config(final String path) {
         this.path = path;
     }
 
     public void load() {
-        Pattern p;
-        Matcher m;
 
         try (BufferedReader read = new BufferedReader(new FileReader(this.path))) {
             List<String> stt = read.lines().collect(Collectors.toList());
             for (String str : stt) {
-                p = Pattern.compile("^([^=]+)={1}(.+)$");
-                m = p.matcher(str);
-                if (m.find()) {
-                    values.put(m.group(1), m.group(2));
+                strSetting = str.split("=");
+                if (strSetting.length == 2) {
+                    values.put(strSetting[0], strSetting[1]);
                 }
             }
 
@@ -40,10 +38,9 @@ public class Config {
     }
 
     public String value(String key) {
-        if (key == "") {
+        if (key.equals("")) {
             throw new IllegalArgumentException("Invalid key");
         }
-
         return values.get(key);
     }
 
