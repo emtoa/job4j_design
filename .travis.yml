@@ -12,7 +12,7 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
 
 # Отправлять уведомление на почту emtoa@yandex.ru(Изменить на свою) если сборка упала
- # CODECOV_TOKEN="7ab0bbbf-2d25-4e3b-866f-2eefcd717eed"
+
 notifications:
   email:
     recipients:
