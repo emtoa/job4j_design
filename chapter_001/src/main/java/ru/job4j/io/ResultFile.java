@@ -15,7 +15,7 @@ public class ResultFile {
                 for (int j = 1; j <= 9; j++) {
                     mult = i * j;
                     res  = Integer.toString(mult);
-                    res = " ".repeat(2-res.length()) + res;
+                    res = " ".repeat(2 - res.length()) + res;
                     out.write(res.getBytes());
                     out.write(" | ".getBytes());
                 }

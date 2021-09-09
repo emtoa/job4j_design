@@ -17,9 +17,9 @@ public class ArrayCopy2 {
         arr[4] = 5;
 
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]+" ");
+            System.out.print(arr[i] + " ");
         }
-        System.arraycopy(arr,0, arr2, 0, arr.length);
+        System.arraycopy(arr, 0, arr2, 0, arr.length);
 
         arr = Arrays.copyOf(arr2, arr2.length);
 
@@ -28,7 +28,7 @@ public class ArrayCopy2 {
         System.out.println("");
         System.out.println("####################################################");
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]+" ");
+            System.out.print(arr[i] + " ");
         }
 
         if (Objects.checkIndex(1, 2) == 1) {

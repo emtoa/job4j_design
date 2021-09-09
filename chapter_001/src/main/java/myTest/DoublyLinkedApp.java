@@ -1,9 +1,7 @@
 package mytest;
 
-class DoublyLinkedApp
-{
-    public static void main(String[] args)
-    { // Создание нового списка
+class DoublyLinkedApp {
+    public static void main(String[] args) { // Создание нового списка
         DoublyLinkedList theList = new DoublyLinkedList();
         theList.insertFirst(22); // Вставка в начале
         theList.insertFirst(44);

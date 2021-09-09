@@ -16,8 +16,8 @@ public class ConfigTest {
         String path = "./data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value("name"),is("Aleksandr"));
-        assertThat(config.value("pass"),is("Figa"));
+        assertThat(config.value("name"), is("Aleksandr"));
+        assertThat(config.value("pass"), is("Figa"));
     }
 
     @Test
@@ -25,7 +25,7 @@ public class ConfigTest {
         String path = "./data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value("ip"),is(nullValue()));
+        assertThat(config.value("ip"), is(nullValue()));
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -33,6 +33,6 @@ public class ConfigTest {
         String path = "./data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value(""),is("Aleksandr"));
+        assertThat(config.value(""), is("Aleksandr"));
     }
 }

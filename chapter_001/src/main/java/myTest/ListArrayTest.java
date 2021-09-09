@@ -13,7 +13,7 @@ public class ListArrayTest {
         lists.add("two");
         lists.add("three");
 
-        lists.add(1,"error");
+        lists.add(1, "error");
 
         System.out.println(lists.get(0));
         System.out.println(lists.get(1));

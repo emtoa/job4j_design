@@ -15,7 +15,7 @@ public class SearchFiles implements FileVisitor<Path> {
 
     private Predicate<Path> pPath;
 
-    public SearchFiles (Predicate<Path> pPath) {
+    public SearchFiles(Predicate<Path> pPath) {
         this.pPath = pPath;
     }
 

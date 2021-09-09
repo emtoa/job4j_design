@@ -25,7 +25,7 @@ public class LinkedStack<T> {
 
     private Node<T> top = new Node<T>(); // Сторож
 
-    public void push (T item) {
+    public void push(T item) {
         top = new Node<T>(item, top);
     }
 

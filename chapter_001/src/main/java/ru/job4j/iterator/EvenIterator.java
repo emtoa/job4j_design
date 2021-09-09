@@ -33,7 +33,7 @@ public class EvenIterator implements Iterator<Integer> {
 
     public Integer indexOf(int index) {
         int count = index;
-        if ( count >= 0 && count < array.length) {
+        if (count >= 0 && count < array.length) {
             while (array[count] % 2 == 1) {
                 count++;
                 if (count >= array.length) {

@@ -1,24 +1,23 @@
 package mytest;
 
-class DoublyLinkedList
-{
+class DoublyLinkedList {
     private Link first; // Ссылка на первый элемент списка
     private Link last; // Ссылка на последний элемент списка
     // -------------------------------------------------------------
-    public DoublyLinkedList() // Конструктор
-    {
+    public DoublyLinkedList() { // Конструктор
         first = null; // Список пока не содержит элементов
         last = null;
     }
     // -------------------------------------------------------------
-    public boolean isEmpty() // true, если список пуст
-    { return first==null; }
+    public boolean isEmpty() { // true, если список пуст
+        return first == null;
+    }
     // -------------------------------------------------------------
-    public void insertFirst(long dd) // Вставка элемента в начало списка
-    {
+    public void insertFirst(long dd) { // Вставка элемента в начало списка
         Link newLink = new Link(dd); // Создание нового элемента
-        if( isEmpty() ) // Если список не содержит элементов,
+        if(isEmpty()) { // Если список не содержит элементов,
             last = newLink; // newLink <-- last
+        }
         else {
             first.previous = newLink; // newLink <-- старое значение first
             newLink.next = first; // newLink --> старое значение first
@@ -26,13 +25,12 @@ class DoublyLinkedList
         first = newLink; // first --> newLink
     }
     // -------------------------------------------------------------
-    public void insertLast(long dd) // элемент в конец списка
-    {
+    public void insertLast(long dd) { // элемент в конец списка
         Link newLink = new Link(dd); // Создание нового элемента
-        if( isEmpty() ) // Если список не содержит элементов,
+        if(isEmpty()) {// Если список не содержит элементов,
             first = newLink; // first --> newLink
-        else
-        {
+        }
+        else {
             last.next = newLink; // старое значение last --> newLink
             newLink.previous = last; // старое значение last <-- newLink
         }
@@ -42,11 +40,13 @@ class DoublyLinkedList
     public Link deleteFirst() // Удаление первого элемента
     { // (предполагается, что список не пуст)
         Link temp = first;
-        if(first.next == null) // Если только один элемент
+        if(first.next == null) {// Если только один элемент
             last = null; // null <-- last
-        else
+        }
+        else {
             first.next.previous = null; // null <-- старое значение next
-        first = first.next; // first --> старое значение next
+            first = first.next; // first --> старое значение next
+        }
         return temp;
     }
     // -------------------------------------------------------------
@@ -72,7 +72,7 @@ class DoublyLinkedList
                 return false; // Ключ не найден
         }
         Link newLink = new Link(dd); // Создание нового элемента
-        if(current==last) // Для последнего элемента списка
+        if(current == last) // Для последнего элемента списка
         {
             newLink.next = null; // newLink --> null
             last = newLink; // newLink <-- last
@@ -97,16 +97,18 @@ class DoublyLinkedList
             if(current == null)
                 return null; // Ключ не найден
         }
-        if(current==first) // Ключ найден; это первый элемент?
+        if(current == first) // Ключ найден; это первый элемент?
             first = current.next; // first --> старое значение next
         else // Не первый элемент
 // старое значение previous --> старое значение next
             current.previous.next = current.next;
-        if(current==last) // Последний элемент?
+        if(current == last) {// Последний элемент?
             last = current.previous; // старое значение previous <-- last
-        else // Не последний элемент
+        }
+        else {// Не последний элемент
 // Старое значение previous <-- старое значение next
             current.next.previous = current.previous;
+        }
         return current; // Возвращение удаленного элемента
     }
     // -------------------------------------------------------------
@@ -114,8 +116,7 @@ class DoublyLinkedList
     {
         System.out.print("List (first-->last): ");
         Link current = first; // От начала списка
-        while(current != null) // Перемещение до конца списка
-        {
+        while(current != null) {// Перемещение до конца списка
             current.displayLink(); // Вывод данных
             current = current.next; // Переход к следующему элементу
         }

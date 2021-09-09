@@ -3,7 +3,7 @@ import java.util.List;
 
 public class ConvertNumber {
 
-    public String NumbertoString (int num)  {
+    public String numbertoString(int num)  {
 
         String result = "";
 
@@ -15,10 +15,10 @@ public class ConvertNumber {
         List<String> listNum = List.of(numString.split(""));
 
         if (listNum.size() == 1) {
-            result =  toStringLessTen (Integer.parseInt(listNum.get(0)), 0);
+            result =  toStringLessTen(Integer.parseInt(listNum.get(0)), 0);
         } else if (listNum.size() == 2) {
-            int numbr = Integer.parseInt(listNum.get(0)+listNum.get(1));
-            if ( numbr >= 11 && numbr <= 19) {
+            int numbr = Integer.parseInt(listNum.get(0) + listNum.get(1));
+            if (numbr >= 11 && numbr <= 19) {
                 result = toStringLessTwenty(numbr);
             } else {
                 result = toStringLessHundred(Integer.parseInt(listNum.get(0)))
@@ -38,31 +38,31 @@ public class ConvertNumber {
         return result.replaceAll("\\s{2,}", " ").trim();
     }
 
-    private String toStringLessTwenty (int num) {
+    private String toStringLessTwenty(int num) {
 
 
-        List<String> str = List.of("одиннадцать","двенадцать","тринадцать","четырнадцать","пятнадцать","шестнадцать","семнадцать","восемнадцать","девятнадцать");
+        List<String> str = List.of("одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать", "шестнадцать", "семнадцать", "восемнадцать", "девятнадцать");
 
         return str.get(num - 11);
     }
 
-    private String toStringLessTen (int num, int isMoreTen) {
+    private String toStringLessTen(int num, int isMoreTen) {
 
         String result = (isMoreTen == 1) ? "" : "ноль";
 
-        List<String> str = List.of(result,"один","два","три","четыре","пять","шесть","семь","восемь","девять", "");
+        List<String> str = List.of(result, "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять", "");
 
         return str.get(num);
     }
 
-    private String toStringLessHundred (int num) {
+    private String toStringLessHundred(int num) {
 
         List<String> str = List.of("", "десять", "двадцать", "тридцать", "сорок", "пятьдесят", "шестьдесят", "семьдесят", "восемьдесят", "девяносто");
 
         return str.get(num);
     }
 
-    private String toStringLessThousand (int num) {
+    private String toStringLessThousand(int num) {
 
         List<String> str = List.of("", "сто", "двести", "тристо", "четыресто", "пятсот", "шестьсот", "семьсот", "восемьсот", "девятьсот");
 
