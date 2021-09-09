@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 import java.util.Arrays;
 import java.util.Objects;

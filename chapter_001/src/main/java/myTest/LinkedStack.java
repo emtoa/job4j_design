@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 //: generics/LinkedStack.java
 // Стек, реализованный на базе связанного списка.

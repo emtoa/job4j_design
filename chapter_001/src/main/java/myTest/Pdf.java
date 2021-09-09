@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 public class Pdf {
 

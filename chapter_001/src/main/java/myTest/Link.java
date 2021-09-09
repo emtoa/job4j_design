@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 class Link
 {

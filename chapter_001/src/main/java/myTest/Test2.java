@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 import ru.job4j.iterator.EvenIterator;
 

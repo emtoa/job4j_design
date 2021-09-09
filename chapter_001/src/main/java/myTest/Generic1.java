@@ -1,4 +1,4 @@
-package myTest;
+package mytest;
 
 public class Generic1 <E> {
     Object[] obj;
