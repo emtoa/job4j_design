@@ -1,6 +1,6 @@
 package mytest;
 
-public class Generic1 <E> {
+public class Generic1<E> {
     Object[] obj;
     int index = 0;
 
@@ -8,7 +8,7 @@ public class Generic1 <E> {
         this.obj = new Object[size];
     }
 
-    public void add (E value) {
+    public void add(E value) {
         this.obj[index++] = value;
     }
 

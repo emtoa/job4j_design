@@ -9,9 +9,9 @@ public class UserTest {
     public static void main(String[] args) {
         System.out.println("###############");
 
-        Calendar calendar = new GregorianCalendar(1992, 03,01);
+        Calendar calendar = new GregorianCalendar(1992, 03, 01);
 
-        Calendar calendar2 = new GregorianCalendar(1992, 03,01);
+        Calendar calendar2 = new GregorianCalendar(1992, 03, 01);
 
         Map<User, String> m = new HashMap<>();
         m.put(new User("name_1", 1, calendar), "Jenny");

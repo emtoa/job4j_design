@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Test_list_of {
+public class Testlistof {
 
     public static List<String> arr = new ArrayList<>();
 

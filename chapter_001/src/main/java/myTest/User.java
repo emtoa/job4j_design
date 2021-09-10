@@ -50,7 +50,7 @@ public class User {
 
     public static void main(String[] args) {
 
-        Calendar calendar = new GregorianCalendar(1992, 03,01);
+        Calendar calendar = new GregorianCalendar(1992, 03, 01);
         User user1 = new User("name_1", 1, calendar);
         User user2 = new User("name_1", 1, calendar);
 

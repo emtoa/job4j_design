@@ -20,7 +20,7 @@ public class SimpleArray<T> implements Iterable<T> {
         }
     }
 
-    public void set(int index, T model){
+    public void set(int index, T model) {
         if (Objects.checkIndex(index, this.indx) == index) {
             this.obj[index] = model;
         }
