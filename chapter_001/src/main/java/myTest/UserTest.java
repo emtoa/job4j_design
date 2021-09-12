@@ -13,9 +13,9 @@ public class UserTest {
 
         Calendar calendar2 = new GregorianCalendar(1992, 03, 01);
 
-        Map<User, String> m = new HashMap<>();
-        m.put(new User("name_1", 1, calendar), "Jenny");
-        System.out.println(m.get(new User("name_1", 1, calendar2)));
+        Map<User888, String> m = new HashMap<>();
+        m.put(new User888("name_1", 1, calendar), "Jenny");
+        System.out.println(m.get(new User888("name_1", 1, calendar2)));
 
         //System.out.println(m.hashCode());
 
