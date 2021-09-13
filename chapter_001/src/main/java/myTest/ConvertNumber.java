@@ -5,7 +5,7 @@ public class ConvertNumber {
 
     public String numbertoString(int num)  {
 
-        private String result = "";
+        String result = "";
 
         if (num < 0 || num > 999) {
             throw new IllegalArgumentException("Input number is not right. The number must be between 0 and 900.");

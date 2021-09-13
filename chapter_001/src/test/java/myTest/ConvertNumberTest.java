@@ -9,6 +9,7 @@ public class ConvertNumberTest {
 
     @Test
     public void whenNumber0() {
+        String stttt;
         ConvertNumber num = new ConvertNumber();
         String result = num.NumbertoString(0);
 
