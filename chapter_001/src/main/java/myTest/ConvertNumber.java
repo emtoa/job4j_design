@@ -11,7 +11,7 @@ public class ConvertNumber {
             throw new IllegalArgumentException("Input number is not right. The number must be between 0 and 900.");
         }
 
-        String numString =  Integer.toString(num);
+        String numString = Integer.toString(num);
         List<String> listNum = List.of(numString.split(""));
 
         if (listNum.size() == 1) {
