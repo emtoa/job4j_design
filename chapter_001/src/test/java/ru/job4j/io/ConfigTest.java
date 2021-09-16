@@ -11,7 +11,7 @@ import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class ConfigTest {
-/*
+
     @Test
     public void whenPairWithComment() {
         String path = "./data/pair_without_comment.properties";
@@ -36,7 +36,7 @@ public class ConfigTest {
         config.load();
         assertThat(config.value(""), is("Aleksandr"));
     }
-*/
+
     @Test
     public void whenPairWithComment1() {
 
